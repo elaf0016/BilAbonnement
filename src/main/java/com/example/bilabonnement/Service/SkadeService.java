@@ -13,9 +13,7 @@ public class SkadeService {
     @Autowired
     SkadeRepository skadeRepository;
 
-    public SkadeService(SkadeRepository skadeRepository) {
-        this.skadeRepository = skadeRepository;
-    } // kun hvis det er nødvendligt
+
     public List<Skade> fetchAllSkade() {
         return skadeRepository.fetchAllSkade();
     }

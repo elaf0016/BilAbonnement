@@ -40,8 +40,8 @@ public class RapportRepository {
         return template.update(sql, rapportID) > 0;
     }
     public void updateRapport(Rapport r){
-        String sql = "UPDATE rapport SET beskrivelse = ?, oprettetDato = ?, stelnummer = ? WHERE rapportID = ?";
-        template.update(sql, r.getBeskrivelse(), r.getOprettetDato(), r.getStelnummer(), r.getRapportID());
+        String sql = "UPDATE rapport SET beskrivelse = ?, oprettetDato = ?WHERE rapportID = ?";
+        template.update(sql, r.getBeskrivelse(), r.getOprettetDato(), r.getRapportID());
     }
 
 

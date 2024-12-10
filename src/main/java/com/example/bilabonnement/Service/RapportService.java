@@ -12,9 +12,7 @@ import java.util.List;
 public class RapportService {
     @Autowired
     RapportRepository rapportRepository;
-    public RapportService(RapportRepository rapportRepository ){
-        this.rapportRepository=rapportRepository;
-    }
+
     public List<Rapport> fetchAllRapport(){
         return rapportRepository.fetchAllRapport();
     }
