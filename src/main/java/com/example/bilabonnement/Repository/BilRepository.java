@@ -46,5 +46,27 @@ public class BilRepository {
             template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(),b.getAfhentningsted(), b.getStelnummer());
         }
 
+        //tilføj af se det udlejede biler
 
+
+    public List<Bil> findUdlejedeBiler() {
+        String sql = """
+        SELECT b.stelnummer, b.mærke, b.model, b.brandstof, b.odometer, b.afhentningsted
+        FROM Bil b
+        INNER JOIN lejeaftale l ON b.Stelnummer = l.Stelnummer
+        WHERE CURDATE() BETWEEN l.start_dato AND l.slut_dato
+    """;
+
+
+        return template.query(sql, (databaserække, rækkenummer) -> new Bil(
+                databaserække.getString("Stelnummer"),
+                databaserække.getString("mærke"),
+                databaserække.getString("Model"),
+                databaserække.getString("Brandstof"),
+                databaserække.getInt("Odometer"),
+                databaserække.getString("Afhentningsted")
+        ));
     }
+
+}
+

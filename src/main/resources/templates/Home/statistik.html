@@ -7,5 +7,29 @@
 <h1>Statistik</h1>
 <p>Antal biler, der er lejet ud: <span th:text="${antalLejedeBiler}">0</span></p>
 <p>Samlet pris for nuværende udlejede biler: <span th:text="${samletPris}">0.00</span> DKK</p>
+
+<h2>Udlejede Biler</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Stelnummer</th>
+        <th>Mærke</th>
+        <th>Model</th>
+        <th>Brandstof</th>
+        <th>Odometer</th>
+        <th>Afhentningssted</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bil : ${udlejedeBiler}">
+        <td th:text="${bil.stelnummer}"></td>
+        <td th:text="${bil.mærke}"></td>
+        <td th:text="${bil.model}"></td>
+        <td th:text="${bil.brandstof}"></td>
+        <td th:text="${bil.odometer}"></td>
+        <td th:text="${bil.afhentningsted}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
